@@ -1,0 +1,28 @@
+{
+  "name": "appointmentbookingapp-fullstack",
+  "version": "1.0.0",
+  "description": "\"full stack appointement booking demo app\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sac6inarya/AppointmentBookingApp-FullStack.git"
+  },
+  "keywords": [
+    "html",
+    "css",
+    "js",
+    "sql",
+    "sequelize",
+    "nodejs",
+    "express"
+  ],
+  "author": "\"Sachin Arya\"",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sac6inarya/AppointmentBookingApp-FullStack/issues"
+  },
+  "homepage": "https://github.com/sac6inarya/AppointmentBookingApp-FullStack#readme"
+}
