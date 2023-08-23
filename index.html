@@ -7,15 +7,13 @@
     <title>Appointement Booking App</title>
   </head>
   <body>
+    <header>
+      <h2>Appointement Booking App</h2>
+    </header>
     <form id="form" method="post" action="/">
       <input type="text" name="name" id="name" placeholder="Name" />
       <input type="email" name="email" id="email" placeholder="Email" />
-      <input
-        type="datetime-local"
-        name="datetime"
-        id="datetime"
-        placeholder="Date/Time"
-      />
+      <input type="datetime-local" name="datetime" id="datetime" />
       <textarea
         name="message"
         id="message"
@@ -25,7 +23,8 @@
       ></textarea>
       <button type="submit" onclick="handleSubmit">Submit</button>
     </form>
-
-    <!-- <script src="app.js"></script> -->
+    <footer>
+      <p>&copy;<a href="https://github.com/sac6inarya">Sachin Arya</a></p>
+    </footer>
   </body>
 </html>

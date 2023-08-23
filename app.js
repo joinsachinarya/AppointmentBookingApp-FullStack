@@ -13,10 +13,11 @@ app.get("/", (req, res, next) => {
 });
 
 app.post("/", (req, res, next) => {
-  fs.writeFile("hey.txt", "data", "utf-8", (err) => {
+  const details = req.body;
+  fs.writeFile("hey.txt", JSON.stringify(details), "utf-8", (err) => {
     console.error(err);
   });
-  res.send("Hey");
+  res.send(details);
 });
 
 app.listen(3000, () => {
