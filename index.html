@@ -8,23 +8,41 @@
   </head>
   <body>
     <header>
-      <h2>Appointement Booking App</h2>
+      <h2>Appointment Booking App</h2>
     </header>
     <form id="form" method="post" action="/">
-      <input type="text" name="name" id="name" placeholder="Name" />
-      <input type="email" name="email" id="email" placeholder="Email" />
+      <label for="name">Name:</label>
+      <input type="text" name="name" id="name" placeholder="Enter your name" />
+
+      <label for="email">Email:</label>
+      <input
+        type="email"
+        name="email"
+        id="email"
+        placeholder="Enter your email"
+      />
+
+      <label for="datetime">Date and Time:</label>
       <input type="datetime-local" name="datetime" id="datetime" />
+
+      <label for="message">Message:</label>
       <textarea
         name="message"
         id="message"
         cols="30"
         rows="10"
-        placeholder="Your message"
+        placeholder="Enter your message"
       ></textarea>
+
       <button type="submit" onclick="handleSubmit">Submit</button>
     </form>
     <footer>
-      <p>&copy;<a href="https://github.com/sac6inarya">Sachin Arya</a></p>
+      <p>
+        &copy;<a
+          href="https://github.com/sac6inarya/AppointmentBookingApp-FullStack"
+          >Sachin Arya</a
+        >
+      </p>
     </footer>
   </body>
 </html>
