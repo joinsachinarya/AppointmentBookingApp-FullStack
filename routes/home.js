@@ -1,19 +1,9 @@
-const path = require("path");
 const express = require("express");
-const fs = require("fs");
 const router = express.Router();
-const { rootDir } = require("../utils/rootDir");
+const homeController = require("../controllers/home");
 
-router.get("/", (req, res, next) => {
-  res.sendFile(path.join(rootDir, "views", "index.html"));
-});
+router.get("/", homeController.getHomePage);
 
-router.post("/", (req, res, next) => {
-  const details = req.body;
-  fs.writeFile("hey.txt", JSON.stringify(details), "utf-8", (err) => {
-    console.error(err);
-  });
-  res.sendFile(path.join(rootDir, "views", "success.html"));
-});
+router.post("/", homeController.postHomePage);
 
 module.exports = router;
