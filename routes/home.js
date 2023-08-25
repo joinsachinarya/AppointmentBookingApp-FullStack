@@ -4,6 +4,6 @@ const homeController = require("../controllers/home");
 
 router.get("/", homeController.getHomePage);
 
-router.post("/", homeController.postHomePage);
+router.post("/success", homeController.postHomePage);
 
 module.exports = router;

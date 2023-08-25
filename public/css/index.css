@@ -14,6 +14,15 @@ body {
     box-sizing: border-box;
 
   }
+  .header-container{
+    display: flex;
+    justify-content: space-between;
+  }
+  .header-container a{
+    color: #fff;
+    text-decoration: none;
+    margin: 1rem;
+  }
 
   form {
     background-color: #fff;
