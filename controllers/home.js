@@ -8,9 +8,21 @@ exports.getHomePage = (req, res, next) => {
 };
 
 exports.postHomePage = (req, res, next) => {
-  const details = req.body;
-  fs.writeFile("hey.txt", JSON.stringify(details), "utf-8", (err) => {
-    console.error(err);
-  });
+  const name = req.body.name;
+  const email = req.body.email;
+  const datetime = req.body.datetime;
+  const message = req.body.message;
+  Details.create({
+    name: name,
+    email: email,
+    datetime: datetime,
+    message: message,
+  })
+    .then((result) => {
+      //   console.log(result);
+    })
+    .catch((err) => {
+      console.error(err);
+    });
   res.sendFile(path.join(rootDir, "views", "success.html"));
 };

@@ -9,7 +9,7 @@ const Details = sequelize.define("detail", {
     primaryKey: true,
   },
   name: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.STRING,
     allowNull: false,
   },
   email: {
