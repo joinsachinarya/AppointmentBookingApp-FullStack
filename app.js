@@ -13,7 +13,7 @@ app.use(express.static(path.join(rootDir, "public")));
 app.use(homeRoutes);
 
 app.use((req, res, next) => {
-  res.sendFile(path.join(rootDir, "views", "404.html"));
+  res.status(400).sendFile(path.join(rootDir, "views", "404.html"));
 });
 
 sequelize
