@@ -19,7 +19,7 @@ app.use((req, res, next) => {
 sequelize
   .sync()
   .then((res) => {
-    console.log(res);
+    // console.log(res);
     app.listen(3000, () => {
       console.log("Server listening at 3000");
     });
