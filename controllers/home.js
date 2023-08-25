@@ -1,7 +1,6 @@
-const Details = require("../models/details");
 const { rootDir } = require("../utils/rootDir");
 const path = require("path");
-const fs = require("fs");
+const Details = require("../models/details");
 
 exports.getHomePage = (req, res, next) => {
   res.sendFile(path.join(rootDir, "views", "index.html"));

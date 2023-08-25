@@ -11,6 +11,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(rootDir, "public")));
 
 app.use(homeRoutes);
+app.use("/my-appointments", (req, res, next) => {
+  res.sendFile(path.join(rootDir, "views", "appointments.html"));
+});
 
 app.use((req, res, next) => {
   res.status(400).sendFile(path.join(rootDir, "views", "404.html"));
