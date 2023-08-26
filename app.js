@@ -17,6 +17,7 @@ sequelize
   .sync()
   .then((res) => {
     app.listen(3000, () => {
+      console.log("Synced with db");
       console.log("Server listening at 3000");
     });
   })
