@@ -1,9 +1,8 @@
-const { rootDir } = require("../utils/rootDir");
-const path = require("path");
 const Details = require("../models/details");
+// const { rootDir } = require("../utils/rootDir");
+// const path = require("path");
 
-//adding single appointment
-exports.postAppointment = (req, res, next) => {
+exports.addAppointment = (req, res, next) => {
   const name = req.body.name;
   const email = req.body.email;
   const datetime = req.body.datetime;
@@ -22,3 +21,7 @@ exports.postAppointment = (req, res, next) => {
       console.error(err);
     });
 };
+
+exports.deleteAppointment = (req, res, next) => {};
+exports.updateAppointment = (req, res, next) => {};
+exports.getAppointment = (req, res, next) => {};

@@ -2,6 +2,9 @@ const express = require("express");
 const router = express.Router();
 const homeController = require("../controllers/home");
 
-router.post("/success", homeController.postAppointment);
+router.post("/", homeController.addAppointment);
+router.get("/", homeController.getAppointment);
+router.delete("/", homeController.deleteAppointment);
+router.put("/", homeController.updateAppointment);
 
 module.exports = router;

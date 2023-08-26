@@ -1,28 +1,21 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const path = require("path");
+// const path = require("path");
+// const { rootDir } = require("./utils/rootDir");
 const homeRoutes = require("./routes/home");
-const { rootDir } = require("./utils/rootDir");
+const appointmentsRoutes = require("./routes/appointments");
 const sequelize = require("./utils/database");
 
 const app = express();
 
+// app.use(express.static(path.join(rootDir, "public")));
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.static(path.join(rootDir, "public")));
-
 app.use(homeRoutes);
-app.use("/my-appointments", (req, res, next) => {
-  res.sendFile(path.join(rootDir, "views", "appointments.html"));
-});
-
-app.use((req, res, next) => {
-  res.status(400).sendFile(path.join(rootDir, "views", "404.html"));
-});
+app.use(appointmentsRoutes);
 
 sequelize
   .sync()
   .then((res) => {
-    // console.log(res);
     app.listen(3000, () => {
       console.log("Server listening at 3000");
     });
