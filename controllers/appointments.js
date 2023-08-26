@@ -3,5 +3,5 @@ const { rootDir } = require("../utils/rootDir");
 const path = require("path");
 
 exports.getAppointmentsPage = (req, res, next) => {
-  res.sendFile(path.join(rootDir, "views", "appointments.html"));
+  res.json(res);
 };

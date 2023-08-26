@@ -3,10 +3,10 @@ const path = require("path");
 const Details = require("../models/details");
 
 exports.getHomePage = (req, res, next) => {
-  res.sendFile(path.join(rootDir, "views", "index.html"));
+  res.json(res);
 };
 
-exports.postHomePage = (req, res, next) => {
+exports.postHomeSuccessPage = (req, res, next) => {
   const name = req.body.name;
   const email = req.body.email;
   const datetime = req.body.datetime;
@@ -18,10 +18,10 @@ exports.postHomePage = (req, res, next) => {
     message: message,
   })
     .then((result) => {
-      //   console.log(result);
+      // console.log(result);
+      res.json(result);
     })
     .catch((err) => {
       console.error(err);
     });
-  res.sendFile(path.join(rootDir, "views", "success.html"));
 };
