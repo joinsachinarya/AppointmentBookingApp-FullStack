@@ -2,11 +2,8 @@ const { rootDir } = require("../utils/rootDir");
 const path = require("path");
 const Details = require("../models/details");
 
-exports.getHomePage = (req, res, next) => {
-  res.json(res);
-};
-
-exports.postHomeSuccessPage = (req, res, next) => {
+//adding single appointment
+exports.postAppointment = (req, res, next) => {
   const name = req.body.name;
   const email = req.body.email;
   const datetime = req.body.datetime;

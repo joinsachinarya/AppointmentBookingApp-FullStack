@@ -77,3 +77,13 @@ label {
     margin-bottom: 5px;
     font-weight: bold;
   }
+.appointements{
+  text-decoration: none;
+}
+  .appointement{
+    display: flex;
+    justify-content: space-around;
+  }
+  .appointement button{
+    width: 10%;
+  }
