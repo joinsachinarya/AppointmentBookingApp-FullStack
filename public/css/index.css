@@ -87,3 +87,14 @@ label {
   .appointement button{
     width: 10%;
   }
+
+  .success-appointments{
+    width: 50%;
+    border: 2px solid black;
+    border-radius: 5px;
+    margin: 0 auto;
+  }
+  .success-appointments button{
+    width: 25%;
+    margin: 10px auto;
+  }
