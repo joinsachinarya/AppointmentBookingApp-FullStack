@@ -1,15 +1,18 @@
 const express = require("express");
-const bodyParser = require("body-parser");
+// const bodyParser = require("body-parser");
 // const path = require("path");
 // const { rootDir } = require("./utils/rootDir");
 const homeRoutes = require("./routes/home");
 const appointmentsRoutes = require("./routes/appointments");
 const sequelize = require("./utils/database");
+const cors = require("cors");
 
 const app = express();
 
+app.use(cors());
 // app.use(express.static(path.join(rootDir, "public")));
-app.use(bodyParser.urlencoded({ extended: false }));
+// app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.json());
 app.use(homeRoutes);
 app.use(appointmentsRoutes);
 
