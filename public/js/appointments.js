@@ -3,24 +3,22 @@ const listItems = document.getElementById("appointements");
 const createListItem = (item) => {
   const li = document.createElement("li");
   li.className = "appointement";
-  const spanName = document.createElement("span");
-  const spanEmail = document.createElement("span");
-  const spanDateTime = document.createElement("span");
-  const spanMessage = document.createElement("span");
+
+  const createSpan = (content) => {
+    const span = document.createElement("span");
+    span.textContent = content;
+    return span;
+  };
+
   const deleteButton = document.createElement("button");
   const editButton = document.createElement("button");
-
-  spanName.textContent = `Name: ${item.name}`;
-  spanEmail.textContent = `Email: ${item.email}`;
-  spanDateTime.textContent = `Date & Time: ${item.datetime}`;
-  spanMessage.textContent = `Message: ${item.message}`;
   deleteButton.textContent = `Delete`;
   editButton.textContent = `Edit`;
 
-  li.appendChild(spanName);
-  li.appendChild(spanEmail);
-  li.appendChild(spanDateTime);
-  li.appendChild(spanMessage);
+  li.appendChild(createSpan(`Name: ${item.name}`));
+  li.appendChild(createSpan(`Email: ${item.email}`));
+  li.appendChild(createSpan(`Date & Time: ${item.datetime}`));
+  li.appendChild(createSpan(`Message: ${item.message}`));
   li.appendChild(deleteButton);
   li.appendChild(editButton);
 
@@ -33,13 +31,6 @@ const showAppointments = (arr) => {
 };
 
 const fetchAllAppointments = (req, res, next) => {
-  // fetch("http://localhost:3000/fetchAllAppointments", {
-  //   mode: "no-cors",
-  // })
-  //   .then((res) => console.log("Res", res))
-  //   .catch((err) => {
-  //     console.error(err);
-  //   });
   axios
     .get("http://localhost:3000/fetchAllAppointments")
     .then((res) => {
