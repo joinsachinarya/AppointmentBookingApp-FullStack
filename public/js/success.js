@@ -17,4 +17,11 @@ const fetchLastAppointment = () => {
       console.error(err);
     });
 };
+
+function goToAllAppointMents() {
+  window.location.pathname = "public/html/appointments.html";
+}
+const goToAllAppointMentsBtn = document
+  .getElementById("gtaBTN")
+  .addEventListener("click", goToAllAppointMents);
 document.addEventListener("DOMContentLoaded", fetchLastAppointment);
