@@ -1,6 +1,5 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-// const path = require("path");
 // const { rootDir } = require("./utils/rootDir");
 const homeRoutes = require("./routes/home");
 const appointmentsRoutes = require("./routes/appointments");
@@ -10,7 +9,6 @@ const cors = require("cors");
 const app = express();
 
 app.use(cors());
-// app.use(express.static(path.join(rootDir, "public")));
 // app.use(express.json());
 app.use(bodyParser.json({ extended: false }));
 app.use(homeRoutes);

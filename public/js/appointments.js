@@ -15,6 +15,9 @@ const createListItem = (item) => {
   deleteButton.textContent = `Delete`;
   editButton.textContent = `Edit`;
 
+  deleteButton.addEventListener("click", () => deleteAppointment(item.id));
+  editButton.addEventListener("click", () => editAppointment(item.id));
+
   li.appendChild(createSpan(` ${item.id}:`));
   li.appendChild(createSpan(`Name: ${item.name}`));
   li.appendChild(createSpan(`Email: ${item.email}`));
@@ -40,6 +43,13 @@ const fetchAllAppointments = (req, res, next) => {
     .catch((err) => {
       console.error(err);
     });
+};
+
+const deleteAppointment = (id) => {
+  console.log("item deleted", id);
+};
+const editAppointment = (id) => {
+  console.log("item updated", id);
 };
 
 document.addEventListener("DOMContentLoaded", fetchAllAppointments);

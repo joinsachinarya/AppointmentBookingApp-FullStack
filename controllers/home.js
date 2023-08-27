@@ -12,7 +12,7 @@ exports.addAppointment = (req, res, next) => {
     message: message,
   })
     .then((result) => {
-      res.json("res", result);
+      res.json(result);
     })
     .catch((err) => {
       console.error(err);
