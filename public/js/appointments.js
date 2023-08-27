@@ -28,6 +28,7 @@ const createListItem = (item) => {
 
   listItems.appendChild(li);
 };
+
 const showAppointments = (arr) => {
   arr.forEach((element) => {
     createListItem(element);
@@ -57,10 +58,47 @@ const deleteAppointment = (id) => {
         })
         .catch((err) => console.error(err))
     : console.log("Item deletion canceled.");
-  window.location.reload();
 };
+
+const fetchAppointment = (id) => {
+  axios
+    .get(`http://localhost:3000/fetchAppointment/${id}`)
+    .then((res) => {
+      console.log(res.data);
+    })
+    .catch((err) => console.error(err));
+};
+
+const openEditPrompt = (item) => {
+  const updatedItemValues = {
+    name: prompt("Edit name:", item.name),
+    email: prompt("Edit email:", item.email),
+    datetime: prompt("Edit datetime:", item.datetime),
+    message: prompt("Edit message:", item.message),
+  };
+  return updatedItemValues;
+};
+
 const editAppointment = (id) => {
-  console.log("item updated", id);
+  axios
+    .get(`http://localhost:3000/fetchAppointment/${id}`)
+    .then((item) => {
+      const currItem = item.data;
+      const updatedValues = openEditPrompt(currItem);
+      const updatedItem = {
+        ...currItem,
+        ...updatedValues,
+      };
+      axios
+        .put(`http://localhost:3000/editAppointment/${id}`, updatedItem)
+        .then((res) => {
+          console.log("Item updated", res);
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    })
+    .catch((err) => console.error(err));
 };
 
 document.addEventListener("DOMContentLoaded", fetchAllAppointments);

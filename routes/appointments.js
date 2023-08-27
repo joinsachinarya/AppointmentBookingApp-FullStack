@@ -12,4 +12,7 @@ router.delete(
   appointmentsController.deleteAppointment
 );
 
+router.get("/fetchAppointment/:id", appointmentsController.fetchAppointment);
+router.put("/editAppointment/:id", appointmentsController.editAppointment);
+
 module.exports = router;

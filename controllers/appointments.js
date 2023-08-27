@@ -17,13 +17,35 @@ exports.deleteAppointment = (req, res, next) => {
     })
     .then((result) => {
       console.log("Item deleted");
+      res.json(result);
     })
     .catch((err) => console.error(err));
 };
 
-exports.updateAppointment = (req, res, next) => {
-  console.log("updated");
+exports.fetchAppointment = (req, res, next) => {
+  Details.findByPk(req.params.id)
+    .then((item) => {
+      console.log("item fetched");
+      res.json(item);
+    })
+    .catch((err) => {
+      console.error(err);
+    });
 };
-exports.getAppointment = (req, res, next) => {
-  console.log("fetched");
+
+exports.editAppointment = (req, res, next) => {
+  const updatedItemValues = {
+    name: req.body.name,
+    email: req.body.email,
+    datetime: req.body.datetime,
+    message: req.body.message,
+  };
+  Details.findByPk(req.params.id)
+    .then((item) => {
+      console.log(updatedItemValues);
+      item.update(updatedItemValues);
+    })
+    .catch((err) => {
+      console.error(err);
+    });
 };
