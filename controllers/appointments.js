@@ -9,3 +9,15 @@ exports.fetchAllAppointments = (req, res, next) => {
       console.error(err);
     });
 };
+
+exports.fetchLastAppointment = (req, res, next) => {
+  Details.findOne({
+    order: [["id", "DESC"]],
+  })
+    .then((result) => {
+      res.json(result);
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+};

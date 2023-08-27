@@ -1,6 +1,7 @@
 const addAppointment = (e) => {
   e.preventDefault();
   console.log("added");
+  window.location.pathname = "/public/html/success.html";
 };
 const deleteAppointment = (req, res, next) => {
   console.log("deleted");

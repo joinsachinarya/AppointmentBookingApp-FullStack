@@ -7,4 +7,9 @@ router.get(
   appointmentsController.fetchAllAppointments
 );
 
+router.get(
+  "/fetchLastAppointment",
+  appointmentsController.fetchLastAppointment
+);
+
 module.exports = router;
