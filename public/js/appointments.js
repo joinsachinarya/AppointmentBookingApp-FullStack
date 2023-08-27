@@ -18,7 +18,6 @@ const createListItem = (item) => {
   deleteButton.addEventListener("click", () => deleteAppointment(item.id));
   editButton.addEventListener("click", () => editAppointment(item.id));
 
-  li.appendChild(createSpan(` ${item.id}:`));
   li.appendChild(createSpan(`Name: ${item.name}`));
   li.appendChild(createSpan(`Email: ${item.email}`));
   li.appendChild(createSpan(`Date & Time: ${item.datetime}`));
@@ -54,7 +53,7 @@ const deleteAppointment = (id) => {
         url: `http://localhost:3000/deleteAppointment/${id}`,
       })
         .then((result) => {
-          console.log("Item deleted", result);
+          window.location.reload();
         })
         .catch((err) => console.error(err))
     : console.log("Item deletion canceled.");
@@ -89,10 +88,11 @@ const editAppointment = (id) => {
         ...currItem,
         ...updatedValues,
       };
+      history.go(0);
       axios
         .put(`http://localhost:3000/editAppointment/${id}`, updatedItem)
-        .then((res) => {
-          console.log("Item updated", res);
+        .then((result) => {
+          console.log(result);
         })
         .catch((err) => {
           console.error(err);
