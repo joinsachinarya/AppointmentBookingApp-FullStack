@@ -7,9 +7,9 @@ router.get(
   appointmentsController.fetchAllAppointments
 );
 
-router.get(
-  "/fetchLastAppointment",
-  appointmentsController.fetchLastAppointment
+router.delete(
+  "/deleteAppointment/:id",
+  appointmentsController.deleteAppointment
 );
 
 module.exports = router;

@@ -46,7 +46,18 @@ const fetchAllAppointments = (req, res, next) => {
 };
 
 const deleteAppointment = (id) => {
-  console.log("item deleted", id);
+  let confirm = window.confirm("Are you sure you want to delete this item?");
+  confirm
+    ? axios({
+        method: "delete",
+        url: `http://localhost:3000/deleteAppointment/${id}`,
+      })
+        .then((result) => {
+          console.log("Item deleted", result);
+        })
+        .catch((err) => console.error(err))
+    : console.log("Item deletion canceled.");
+  window.location.reload();
 };
 const editAppointment = (id) => {
   console.log("item updated", id);

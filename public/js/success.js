@@ -7,7 +7,7 @@ const showLastAppointment = (item) => {
   pTags[3].textContent = `Message: ${item.message}`;
 };
 
-const fetchLastAppointment = (req, res, next) => {
+const fetchLastAppointment = () => {
   axios
     .get("http://localhost:3000/fetchLastAppointment")
     .then((result) => {

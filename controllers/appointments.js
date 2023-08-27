@@ -10,14 +10,20 @@ exports.fetchAllAppointments = (req, res, next) => {
     });
 };
 
-exports.fetchLastAppointment = (req, res, next) => {
-  Details.findOne({
-    order: [["id", "DESC"]],
-  })
-    .then((result) => {
-      res.json(result);
+exports.deleteAppointment = (req, res, next) => {
+  Details.findByPk(req.params.id)
+    .then((item) => {
+      return item.destroy();
     })
-    .catch((err) => {
-      console.error(err);
-    });
+    .then((result) => {
+      console.log("Item deleted");
+    })
+    .catch((err) => console.error(err));
+};
+
+exports.updateAppointment = (req, res, next) => {
+  console.log("updated");
+};
+exports.getAppointment = (req, res, next) => {
+  console.log("fetched");
 };

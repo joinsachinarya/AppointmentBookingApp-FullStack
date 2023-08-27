@@ -18,13 +18,14 @@ exports.addAppointment = (req, res, next) => {
       console.error(err);
     });
 };
-
-exports.deleteAppointment = (req, res, next) => {
-  console.log("deleted");
-};
-exports.updateAppointment = (req, res, next) => {
-  console.log("updated");
-};
-exports.getAppointment = (req, res, next) => {
-  console.log("fetched");
+exports.fetchLastAppointment = (req, res, next) => {
+  Details.findOne({
+    order: [["id", "DESC"]],
+  })
+    .then((result) => {
+      res.json(result);
+    })
+    .catch((err) => {
+      console.error(err);
+    });
 };
