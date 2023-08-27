@@ -15,6 +15,7 @@ const createListItem = (item) => {
   deleteButton.textContent = `Delete`;
   editButton.textContent = `Edit`;
 
+  li.appendChild(createSpan(` ${item.id}:`));
   li.appendChild(createSpan(`Name: ${item.name}`));
   li.appendChild(createSpan(`Email: ${item.email}`));
   li.appendChild(createSpan(`Date & Time: ${item.datetime}`));
