@@ -82,7 +82,9 @@ label {
 }
   .appointement{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    border-bottom: 1px solid gray;
+    margin-top: 25px;
   }
   .appointement button{
     width: 10%;
